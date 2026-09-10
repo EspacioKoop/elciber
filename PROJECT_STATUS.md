@@ -4,6 +4,12 @@
 
 Este es el punto de entrada para retomar El Ciber desde un clon nuevo, sin depender del historial de un chat. Describe implementación, decisiones y pendientes por separado. El commit de la rama publicada identifica el candidato exacto; la fecha de este documento no acredita pruebas posteriores.
 
+## Espacio de colaboración
+
+Repositorio canónico: **[EspacioKoop/elciber](https://github.com/EspacioKoop/elciber)**. El proyecto se transfirió a la organización compartida el 2026-09-10, conservando identidad e historial. `VaroTv7` y `eGurucharri` tienen acceso para colaborar; las autorizaciones actuales deben consultarse en GitHub antes de cambiar permisos.
+
+El Ciber sigue siendo independiente de los demás proyectos de la organización. No se copian sus datos, contratos o infraestructura. Los agentes no reciben autorización de trabajo autónomo por este traslado. Antes de editar, revisar `main`, estado local, issues y PR abiertos; usar ramas propias y PR para no pisar trabajo paralelo.
+
 ## Objetivo acordado
 
 Una aplicación **gratuita y open source** para jugar por LAN virtual con amigos, con salas e invitaciones: **instalar → crear sala o aceptar invitación → jugar**.

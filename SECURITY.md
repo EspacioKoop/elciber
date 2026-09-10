@@ -4,7 +4,7 @@
 
 ## Reportar un problema
 
-Usa [Report a vulnerability](https://github.com/VaroTv7/elciber/security/advisories/new) si GitHub ofrece el canal privado en este repositorio. Si no está disponible, abre un issue que solicite un canal privado **sin** incluir la vulnerabilidad, invitaciones, direcciones ni registros. No hay SLA de respuesta ni recompensa prometida.
+Usa [Report a vulnerability](https://github.com/EspacioKoop/elciber/security/advisories/new) si GitHub ofrece el canal privado en este repositorio. Si no está disponible, abre un issue que solicite un canal privado **sin** incluir la vulnerabilidad, invitaciones, direcciones ni registros. No hay SLA de respuesta ni recompensa prometida.
 
 ## Fronteras
 

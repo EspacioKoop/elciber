@@ -69,7 +69,7 @@ prepare:
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ElCiber" "DisplayVersion" "0.1.0-alpha.1"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ElCiber" "Publisher" "El Ciber contributors"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ElCiber" "UninstallString" '$\"$INSTDIR\uninstall.exe$\"'
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ElCiber" "URLInfoAbout" "https://github.com/VaroTv7/elciber"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ElCiber" "URLInfoAbout" "https://github.com/EspacioKoop/elciber"
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ElCiber" "NoModify" 1
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ElCiber" "NoRepair" 1
 SectionEnd

@@ -76,7 +76,7 @@ Una sala no es un servidor de juego. Alguien sigue teniendo que crear la partida
 Requisitos de desarrollo: **Go 1.27.1** o compatible y Git. Windows 11 x64 es el objetivo principal; Linux x64 es el entorno de validación local inicial.
 
 ```bash
-git clone https://github.com/VaroTv7/elciber.git
+git clone https://github.com/EspacioKoop/elciber.git
 cd elciber
 go test ./...
 ```
@@ -155,6 +155,12 @@ El servicio local no debe exponerse en Internet. Los datos de sala se guardan lo
 
 Consulta [SECURITY.md](SECURITY.md), el [modelo de amenazas](docs/THREAT-MODEL.md) y los [avisos de terceros](THIRD_PARTY_NOTICES.md).
 
+## Colaboración en EspacioKoop
+
+El repositorio oficial es [EspacioKoop/elciber](https://github.com/EspacioKoop/elciber), compartido por [VaroTv7](https://github.com/VaroTv7) y [eGurucharri](https://github.com/eGurucharri). El Ciber conserva su identidad, licencia y hoja de ruta como proyecto independiente.
+
+Antes de trabajar, consultar [estado y reanudación](PROJECT_STATUS.md) y las ramas/PR abiertas. Cada cambio se coordina en una rama y se entrega mediante PR, evitando sobrescribir trabajo ajeno. Las decisiones y pendientes se mantienen en el repositorio, no solo en conversaciones privadas. Véase [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Desarrollo
 
 ```bash
@@ -173,7 +179,7 @@ La interfaz no necesita `npm install` para funcionar. Playwright se utiliza para
 - [Arquitectura](docs/ARCHITECTURE.md)
 - [Contrato de API](docs/API.md)
 - [Contribuir](CONTRIBUTING.md)
-- [Registrar una prueba con un juego](https://github.com/VaroTv7/elciber/issues/new/choose)
+- [Registrar una prueba con un juego](https://github.com/EspacioKoop/elciber/issues/new/choose)
 - [Historial de cambios](CHANGELOG.md)
 
 ## Licencia y créditos

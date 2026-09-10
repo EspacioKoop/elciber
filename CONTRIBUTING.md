@@ -2,6 +2,12 @@
 
 Queremos que entrar a una partida LAN con amigos sea sencillo, no convertir el cliente en un panel de administración de redes.
 
+## Colaboración compartida
+
+El destino oficial de contribuciones es [EspacioKoop/elciber](https://github.com/EspacioKoop/elciber), compartido por `VaroTv7` y `eGurucharri`. No se reservan áreas tecnológicas a una sola persona: el alcance temporal se coordina mediante issue/PR y rama activa.
+
+Antes de cambiar archivos, comprobar el estado vivo de `main`, las PR abiertas y cualquier trabajo local sin publicar. Crear una rama acotada (`feature/`, `fix/`, `docs/`, `test/` o `chore/`) y entregar por PR. No forzar pushes, sobrescribir cambios ajenos ni dar por integrada una entrega sin verificar el commit remoto. Una revisión adicional se exige cuando lo determinen el riesgo o las reglas vigentes; no ignorar bloqueos, pruebas fallidas o aceptación humana pendiente.
+
 ## Preparar el entorno
 
 1. Instala Go 1.27.1 o compatible y clona el repositorio.
