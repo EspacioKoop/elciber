@@ -2,6 +2,12 @@
 
 El estado de una versión describe lo entregado, no la aspiración del producto.
 
+## Colaboración en EspacioKoop · 2026-09-10
+
+- Repositorio transferido a `EspacioKoop/elciber`, conservando identidad e historial.
+- Acceso compartido comprobado para `VaroTv7` y `eGurucharri`; enlaces, módulo Go y punto de reanudación actualizados.
+- La transferencia no activa CI, despliega servicios ni completa la conectividad o el instalador pendientes.
+
 ## Trabajo posterior de la alpha · 2026-09-10
 
 - Candidato NSIS de instalador único, helper Go de descarga verificada, arranque gráfico y cierre autenticado. Compilado y probado localmente; instalación Windows pendiente.
