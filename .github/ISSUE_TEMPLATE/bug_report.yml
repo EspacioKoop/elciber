@@ -1,0 +1,33 @@
+name: Error del cliente
+description: Un comportamiento reproducible de El Ciber.
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: "No pegues invitaciones, claves, IPs públicas ni logs completos. Para vulnerabilidades utiliza SECURITY.md."
+  - type: input
+    id: version
+    attributes:
+      label: Versión de El Ciber y sistema operativo
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Qué esperabas y qué ocurrió
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Modo del cliente
+      options:
+        - Inspección (sin adaptador)
+        - VPN
+        - No lo sé

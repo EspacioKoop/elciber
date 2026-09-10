@@ -1,0 +1,38 @@
+name: Prueba de compatibilidad con un juego
+description: Registra una partida real, tanto si funciona como si falla.
+body:
+  - type: markdown
+    attributes:
+      value: "No publiques invitaciones, nombres de equipos ni direcciones públicas. Un ping no equivale a una partida."
+  - type: input
+    id: game
+    attributes:
+      label: Juego y versión exacta
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Versión de El Ciber, EasyTier y sistemas operativos
+    validations:
+      required: true
+  - type: textarea
+    id: topology
+    attributes:
+      label: Equipos, redes distintas y conexión directa o relay (sin IPs)
+    validations:
+      required: true
+  - type: dropdown
+    id: discovery
+    attributes:
+      label: Cómo entraste en la partida
+      options:
+        - Introduciendo IP virtual
+        - Lista de partidas LAN automática
+        - No fue posible entrar
+  - type: textarea
+    id: result
+    attributes:
+      label: Resultado, duración de partida y reproducción
+    validations:
+      required: true

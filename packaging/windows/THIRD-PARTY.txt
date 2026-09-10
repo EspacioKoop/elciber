@@ -1,0 +1,24 @@
+EL CIBER — AVISOS DEL INSTALADOR
+
+El cliente y el helper de instalación se distribuyen bajo MIT (LICENSE.txt).
+El instalador necesita Internet y descarga directamente de los servidores
+oficiales de EasyTier los archivos necesarios, verificando su SHA-256 fijado.
+No incluye ni redistribuye los binarios de EasyTier o Wintun dentro del EXE.
+
+EasyTier 2.6.4 — LGPL-3.0
+Proyecto y código fuente: https://github.com/EasyTier/EasyTier/tree/v2.6.4
+Licencia: https://github.com/EasyTier/EasyTier/blob/v2.6.4/LICENSE
+Binarios originales: https://github.com/EasyTier/EasyTier/releases/tag/v2.6.4
+
+Wintun — WireGuard LLC
+La DLL se obtiene del paquete oficial del motor. Es un componente separado.
+Documentación, licencia y fuentes: https://www.wintun.net/
+No se alteran ni se extraen los controladores firmados de la DLL.
+
+NSIS — instalador, licencia zlib/libpng para el núcleo; componentes con sus
+respectivas licencias. Fuente y avisos: https://nsis.sourceforge.io/License
+No se emplean plugins de red de terceros ni scripts remotos.
+
+El Ciber no modifica automáticamente el firewall, no configura UPnP y no
+instala un servicio de arranque. Las salas se conservan al desinstalar.
+La alpha aún necesita un servicio de encuentro y pruebas Windows reales.

@@ -1,0 +1,21 @@
+# Build and downloaded engines
+/dist/
+/engines/
+/elciber
+/elciber.exe
+# Local state and credentials (never commit)
+/data/
+/.elciber/
+*.toml
+*.log
+.env
+.env.*
+!.env.example
+# Browser tooling
+node_modules/
+test-results/
+playwright-report/
+coverage/
+__pycache__/
+*.py[cod]
+.DS_Store

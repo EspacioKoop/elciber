@@ -1,0 +1,8 @@
+{
+  "name": "elciber-devtools",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "description": "Development-only browser tests. Not part of the El Ciber runtime.",
+  "scripts": { "test": "playwright test", "test:ui": "playwright test" },
+  "devDependencies": { "@playwright/test": "1.63.0" }
+}

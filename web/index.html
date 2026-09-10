@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#10151f">
+  <meta name="elciber-token" content="__ELCIBER_TOKEN__">
+  <meta name="description" content="Salas para jugar con tus amigos. Una aplicación local y open source para preparar vuestra conexión con EasyTier.">
+  <title>el ciber — Vuestras salas</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6L10 14M10 5H5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-5"/></symbol>
+    <symbol id="i-room" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8m-4-4v4M7 8h5"/></symbol>
+    <symbol id="i-import" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m9 15 6-6m-5-2 2-2a5 5 0 0 1 7 7l-2 2M7 10l-2 2a5 5 0 0 0 7 7l2-2"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="M12 8v5m0 3v.1"/></symbol>
+    <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10m-6-7a9 9 0 1 0 12 0"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 14h12l1-14M10 10v6m4-6v6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.1"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5C8 2 3 3 3 3v16s5-1 9 2c4-3 9-2 9-2V3s-5-1-9 2Zm0 0v16"/></symbol>
+  </svg>
+  <a class="skip-link" href="#workspace">Saltar al contenido</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación de salas">
+      <a class="brand" href="#" id="brand-home" aria-label="el ciber, inicio">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M10 5H5v30h5m20-30h5v30h-5"/><path d="M14 15h12v10H14zM17 29h6"/></svg>
+        <span>el ciber<span class="brand-dot">.</span></span>
+      </a>
+      <div class="room-navigation">
+        <div class="nav-heading"><h2>Tus salas <span id="room-count" hidden></span></h2><button class="icon-button" data-open="create-dialog" data-needs-state title="Crear sala" aria-label="Crear sala" disabled><svg class="icon"><use href="#i-plus"/></svg></button></div>
+        <p class="sidebar-empty" id="sidebar-empty">Cargando tus salas…</p>
+        <nav id="room-list" aria-label="Salas guardadas"></nav>
+        <button class="sidebar-import" data-open="import-dialog" data-needs-state disabled><svg class="icon"><use href="#i-import"/></svg>Guardar invitación</button>
+      </div>
+      <div class="sidebar-bottom"><div class="local-computer"><span class="computer-icon"><svg class="icon"><use href="#i-room"/></svg></span><div><strong>Este equipo</strong><span>Aplicación local</span></div><span class="local-dot" aria-hidden="true"></span></div><p>Sin cuentas. Tú eliges con quién.</p></div>
+    </aside>
+
+    <div class="app-body">
+      <header class="topbar">
+        <span class="preview-label"><span aria-hidden="true"></span>Vista previa técnica · v0.1</span>
+        <nav class="header-links" aria-label="Recursos"><button class="text-button" id="quit-app" title="Cerrar la aplicación y detener su conexión">Cerrar El Ciber</button><a href="https://github.com/VaroTv7/elciber#readme" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-book"/></svg><span>Guía</span><svg class="icon tiny"><use href="#i-external"/></svg></a><a href="https://github.com/VaroTv7/elciber" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-code"/></svg><span>Código fuente</span><svg class="icon tiny"><use href="#i-external"/></svg></a></nav>
+      </header>
+      <div class="connection-error" id="connection-error" role="alert" hidden><svg class="icon"><use href="#i-info"/></svg><p id="connection-error-text"></p><button class="text-button" id="retry-state">Reintentar</button></div>
+      <div class="content-layout">
+        <main id="workspace" tabindex="-1">
+          <section id="home-view" aria-labelledby="home-title">
+            <div class="page-heading"><p class="eyebrow"><span class="short-line"></span>EL PUNTO DE ENCUENTRO</p><h1 id="home-title">Lo de siempre.<br><span>Jugar juntos.</span></h1><p class="page-intro">Vuestras salas, listas para la próxima partida.<br>Sin cuentas ni otra lista de amigos.</p></div>
+            <div class="empty-card">
+              <div class="room-art" aria-hidden="true">
+                <svg viewBox="0 0 460 170" fill="none"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="currentColor" opacity=".18"/></pattern></defs><rect width="460" height="170" fill="url(#grid)"/><path class="art-wire" d="M99 86h69c18 0 18 28 36 28h53c18 0 18-28 36-28h67"/><path class="art-wire faint" d="M99 96h58c18 0 18 29 36 29h75c18 0 18-29 36-29h56"/><rect x="45" y="40" width="109" height="75" rx="8" class="art-screen"/><rect x="53" y="48" width="93" height="54" rx="3" class="art-display"/><path d="M86 115v15m-16 1h59" class="art-stand"/><path d="m77 68 10 9-10 9m20 0h17" class="art-cursor"/><rect x="309" y="40" width="109" height="75" rx="8" class="art-screen"/><rect x="317" y="48" width="93" height="54" rx="3" class="art-display"/><path d="M351 115v15m-16 1h59" class="art-stand"/><path d="m343 68 10 9-10 9m20 0h17" class="art-cursor"/><rect x="209" y="60" width="46" height="46" rx="13" class="art-hub"/><path d="M226 73h-5v20h5m12-20h5v20h-5m-10-14h8v8h-8Z" class="art-hub-mark"/></svg>
+                <span>VUESTRO PRÓXIMO PUNTO DE ENCUENTRO</span>
+              </div>
+              <div class="empty-content"><p class="eyebrow" id="empty-eyebrow">EMPEZAD POR AQUÍ</p><h2 id="empty-title">Una sala. Vuestra gente.</h2><p id="empty-description">Crea una sala y comparte la invitación en privado.<br>¿Ya tienes una? Guárdala sin conectarte.</p><div class="button-row"><button class="button primary" data-open="create-dialog" data-needs-state disabled><svg class="icon"><use href="#i-plus"/></svg>Crear una sala</button><button class="button secondary" data-open="import-dialog" data-needs-state disabled><svg class="icon"><use href="#i-import"/></svg>Guardar invitación</button></div><div class="quiet-note"><svg class="icon"><use href="#i-shield"/></svg>Guardar una sala no inicia ninguna conexión.</div></div>
+            </div>
+            <div class="home-footnote"><span class="footnote-icon"><svg class="icon"><use href="#i-code"/></svg></span><p><strong>Pequeño por fuera. Abierto por dentro.</strong><br>el ciber se abre en tu navegador. EasyTier es el motor externo de conexión.</p></div>
+          </section>
+
+          <section id="room-view" aria-labelledby="room-title" hidden>
+            <div class="room-heading"><p class="eyebrow"><span class="short-line"></span>SALA GUARDADA</p><h1 id="room-title"></h1><div class="room-meta"><span id="room-game" class="game-tag"></span><span id="room-created"></span></div></div>
+            <div class="room-card">
+              <div class="room-card-heading"><div><p class="eyebrow">CONEXIÓN DE ESTA SALA</p><h2 id="room-status">Sin conectar</h2></div><span class="status-symbol" id="room-status-symbol"><svg class="icon"><use href="#i-power"/></svg></span></div>
+              <p class="status-description" id="room-status-description"></p>
+              <dl class="connection-details"><div class="destination-detail"><dt>Destino de encuentro</dt><dd id="room-destination"></dd></div><div class="ip-detail"><dt>IP virtual de este equipo</dt><dd><span id="room-ip">No disponible</span><button class="icon-button" id="copy-ip" title="Copiar IP virtual" aria-label="Copiar IP virtual" hidden><svg class="icon"><use href="#i-copy"/></svg></button></dd></div><div class="public-key-detail" id="room-key-detail" hidden><dt>Clave pública del nodo</dt><dd id="room-public-key"></dd></div></dl>
+              <p class="inline-note" id="connect-hint"></p>
+              <div class="room-primary-actions"><button class="button primary" id="connect-room" disabled><svg class="icon"><use href="#i-power"/></svg><span id="connect-label">Revisar conexión</span></button><button class="button secondary" id="disconnect-room" hidden><svg class="icon"><use href="#i-power"/></svg>Desconectar</button><button class="button secondary" id="share-room" disabled><svg class="icon"><use href="#i-link"/></svg>Mostrar invitación</button></div>
+            </div>
+            <section class="peers-panel" aria-labelledby="peers-title"><div class="section-heading"><h2 id="peers-title">Datos del motor</h2><span class="micro-label" id="peers-count">Sin datos</span></div><div id="peers-empty" class="peers-empty"><svg class="icon"><use href="#i-room"/></svg><div><strong id="peers-empty-title">Todavía no hay datos de conexión</strong><p id="peers-empty-description">Solo se muestran equipos e IP que el motor haya confirmado.</p></div></div><div class="peer-list" id="peer-list" hidden></div><p class="peer-disclaimer" id="peer-disclaimer" hidden>Estos datos vienen de EasyTier. Un proceso operativo no garantiza que el juego detecte la LAN.</p></section>
+            <div class="room-footer"><p><svg class="icon"><use href="#i-shield"/></svg>Comparte la invitación solo con personas de confianza.</p><button class="text-button danger-text" id="delete-room"><svg class="icon"><use href="#i-trash"/></svg>Eliminar sala</button></div>
+          </section>
+          <noscript><div class="noscript-message">Activa JavaScript para comunicarte con la aplicación local. Sin él no se crean salas ni se inicia ninguna conexión.</div></noscript>
+        </main>
+
+        <aside class="guide-panel" aria-label="Estado del motor y ayuda">
+          <section class="engine-card" aria-labelledby="engine-title"><div class="section-heading"><h2 id="engine-title">Tu conexión</h2><svg class="icon"><use href="#i-shield"/></svg></div><div class="mode-tag" id="engine-mode">Comprobando modo</div><h3 id="engine-headline">Consultando la app local</h3><p id="engine-explanation">El estado aparecerá cuando responda el servicio de este equipo.</p><div class="engine-process"><span id="engine-status-dot" class="status-dot" aria-hidden="true"></span><span id="engine-status">Esperando respuesta</span></div><p id="engine-message" class="engine-message" hidden></p><p id="engine-version" class="engine-version" hidden></p><div class="engine-install" id="engine-install" hidden><strong>Falta el motor de red</strong><p>Puedes crear y guardar salas. Si instalaste El Ciber y falta el motor, reinstala la aplicación para recuperarlo; tus salas se conservan.</p><a class="inline-link" href="https://github.com/VaroTv7/elciber#readme" target="_blank" rel="noopener noreferrer">Ayuda de instalación<svg class="icon tiny"><use href="#i-external"/></svg></a></div><button class="button secondary small full-width" id="stop-engine" hidden><svg class="icon"><use href="#i-power"/></svg>Detener motor</button></section>
+          <section class="how-to" aria-labelledby="how-title"><p class="eyebrow">SIN PERDERSE</p><h2 id="how-title">De sala a partida.</h2><ol class="steps"><li><span class="step-number">01</span><div><h3>Prepara el encuentro</h3><p>Crea una sala o guarda la invitación que te han pasado.</p></div></li><li><span class="step-number">02</span><div><h3>Solo vuestra gente</h3><p>La invitación contiene un secreto compartido. No la publiques.</p></div></li><li><span class="step-number">03</span><div><h3>Revisa antes de conectar</h3><p>Comprueba el modo y el destino. La conexión siempre la decides tú.</p></div></li></ol><a class="guide-link" href="https://github.com/VaroTv7/elciber#readme" target="_blank" rel="noopener noreferrer"><span>Leer la guía de conexión</span><svg class="icon"><use href="#i-external"/></svg></a></section>
+          <p class="honesty-note">Esto es una vista previa técnica.<br>No se da por verificada la LAN ni la compatibilidad de tus juegos.</p>
+        </aside>
+      </div>
+      <footer class="app-footer"><span>Hecho para juntarse, no para registrarse.</span><span>Local · Open source</span></footer>
+    </div>
+  </div>
+
+  <dialog id="create-dialog" aria-labelledby="create-title" aria-describedby="create-description"><form id="create-form"><div class="dialog-topline"><span class="dialog-icon"><svg class="icon"><use href="#i-plus"/></svg></span><button class="icon-button" type="button" data-close aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button></div><p class="eyebrow">VUESTRO PUNTO DE ENCUENTRO</p><h2 id="create-title">Dale nombre a la sala.</h2><p class="dialog-description" id="create-description">Se guarda en este equipo. Crear una sala no inicia el motor ni te conecta a ninguna red.</p><div class="field"><label for="create-name">Nombre de la sala</label><input id="create-name" name="name" autocomplete="off" maxlength="80" required placeholder="Ej. La partida del viernes" autofocus></div><div class="field"><label for="create-game">Juego <span>opcional</span></label><input id="create-game" name="game" autocomplete="off" maxlength="100" placeholder="Ej. Minecraft"></div><details class="advanced-options"><summary>Destino de encuentro <span>opcional para guardar</span></summary><div class="field"><label for="create-rendezvous">Dirección del nodo</label><input id="create-rendezvous" name="rendezvous" type="text" inputmode="url" spellcheck="false" autocomplete="off" maxlength="512" placeholder="tcp://servidor:11010" aria-describedby="destination-help"><p class="field-help" id="destination-help">Una dirección <code>tcp://host:puerto</code> o <code>udp://host:puerto</code> que conozcas y en la que confíes. Sin destino podrás guardar y compartir, pero no conectar. No hay un nodo público preconfigurado.</p><p class="field-help inspection-only">En inspección solo se admiten destinos loopback numéricos, como <code>tcp://127.0.0.1:11010</code>. No crea red virtual.</p></div><div class="field"><label for="create-rendezvous-key">Clave pública del nodo <span>opcional para guardar</span></label><input id="create-rendezvous-key" name="rendezvousKey" type="text" spellcheck="false" autocomplete="off" autocapitalize="off" maxlength="512" aria-describedby="rendezvous-key-help" placeholder="Clave pública en base64"><p class="field-help" id="rendezvous-key-help">Necesaria para conectar en modo VPN; pídesela a quien gestione el nodo. Es una clave pública, no el secreto de tu sala.</p></div></details><p class="form-error" role="alert" hidden></p><div class="dialog-actions"><button class="button secondary" type="button" data-close>Cancelar</button><button class="button primary" type="submit"><span>Crear sala</span><svg class="icon"><use href="#i-arrow"/></svg></button></div></form></dialog>
+
+  <dialog id="import-dialog" aria-labelledby="import-title" aria-describedby="import-description"><form id="import-form"><div class="dialog-topline"><span class="dialog-icon"><svg class="icon"><use href="#i-import"/></svg></span><button class="icon-button" type="button" data-close aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button></div><p class="eyebrow">¿OS ESTÁN ESPERANDO?</p><h2 id="import-title">Guarda tu sitio.</h2><p class="dialog-description" id="import-description">Pega una invitación de alguien de confianza. Primero se guarda la sala; conectar requiere otro paso y tu confirmación.</p><div class="field"><label for="import-invite">Invitación de la sala</label><textarea id="import-invite" name="invite" rows="5" required spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="Pega aquí la invitación completa" autofocus></textarea><p class="field-help">Trátala como una contraseña. No se guarda en el almacenamiento del navegador.</p></div><p class="form-error" role="alert" hidden></p><div class="dialog-actions"><button class="button secondary" type="button" data-close>Cancelar</button><button class="button primary" type="submit">Guardar sin conectar<svg class="icon"><use href="#i-arrow"/></svg></button></div></form></dialog>
+
+  <dialog id="share-dialog" aria-labelledby="share-title" aria-describedby="share-description"><div class="dialog-topline"><span class="dialog-icon"><svg class="icon"><use href="#i-link"/></svg></span><button class="icon-button" type="button" data-close aria-label="Cerrar y ocultar invitación"><svg class="icon"><use href="#i-close"/></svg></button></div><p class="eyebrow">SOLO ENTRE VOSOTROS</p><h2 id="share-title">Una invitación, en privado.</h2><p class="dialog-description" id="share-description">Quien tenga este texto tiene el secreto de la sala. No es de un solo uso ni está cifrado. Envíalo por un canal privado de confianza.</p><p class="share-room-name" id="share-room-name"></p><div class="field"><label for="share-invite">Invitación</label><textarea id="share-invite" rows="5" readonly spellcheck="false" autocomplete="off" aria-describedby="share-feedback"></textarea></div><p class="form-error" role="alert" hidden></p><p class="field-help" id="share-feedback" role="status"></p><div class="dialog-actions"><button class="button secondary" data-close>Ocultar</button><button class="button primary" id="copy-invite"><svg class="icon"><use href="#i-copy"/></svg>Copiar invitación</button></div></dialog>
+
+  <dialog id="connect-dialog" aria-labelledby="connect-title" aria-describedby="connect-description"><form id="connect-form"><div class="dialog-topline"><span class="dialog-icon"><svg class="icon"><use href="#i-shield"/></svg></span><button class="icon-button" type="button" data-close aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button></div><p class="eyebrow">TÚ DECIDES LA CONEXIÓN</p><h2 id="connect-title">Revisa antes de entrar.</h2><p class="dialog-description" id="connect-description"></p><dl class="confirmation-details"><div><dt>Sala</dt><dd id="confirm-room-name"></dd></div><div><dt>Destino de encuentro</dt><dd id="confirm-destination"></dd></div><div id="confirm-key-detail" hidden><dt>Clave pública del nodo</dt><dd id="confirm-public-key"></dd></div><div><dt>Modo</dt><dd id="confirm-mode"></dd></div></dl><div class="trust-warning"><svg class="icon"><use href="#i-shield"/></svg><p id="confirm-risk"></p></div><label class="checkbox-field" for="connect-ack"><input type="checkbox" id="connect-ack" required><span>Confío en las personas de esta sala y en el destino mostrado. Entiendo lo que hace este modo.</span></label><p class="form-error" role="alert" hidden></p><div class="dialog-actions"><button class="button secondary" type="button" data-close autofocus>Ahora no</button><button class="button primary" type="submit" id="confirm-connect" disabled><svg class="icon"><use href="#i-power"/></svg><span id="confirm-connect-label">Confirmar conexión</span></button></div></form></dialog>
+
+  <dialog id="delete-dialog" aria-labelledby="delete-title" aria-describedby="delete-description"><form id="delete-form"><div class="dialog-topline"><span class="dialog-icon destructive"><svg class="icon"><use href="#i-trash"/></svg></span><button class="icon-button" type="button" data-close aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button></div><p class="eyebrow">SOLO EN ESTE EQUIPO</p><h2 id="delete-title">¿Eliminar esta sala?</h2><p class="dialog-description" id="delete-description">Se borrará la sala guardada en este equipo. No elimina las copias de otras personas ni revoca las invitaciones ya compartidas.</p><p class="delete-room-name" id="delete-room-name"></p><p class="form-error" role="alert" hidden></p><div class="dialog-actions"><button class="button secondary" type="button" data-close autofocus>Conservar sala</button><button class="button danger" type="submit">Eliminar sala</button></div></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden><svg class="icon"><use href="#i-check"/></svg><span id="toast-message"></span></div>
+</body>
+</html>
