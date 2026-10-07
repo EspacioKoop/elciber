@@ -8,6 +8,7 @@ El estado de una versión describe lo entregado, no la aspiración del producto.
 - VPN recupera el conjunto STUN integrado de EasyTier 2.6.4 y permite relay de datos como respaldo; inspección sigue aislada sin STUN, P2P ni relay de datos.
 - Se mantienen `private_mode`, UPnP desactivado y relays KCP/QUIC desactivados para no ampliar más superficie de la necesaria.
 - Añadidas pruebas de regresión que fijan la separación entre inspección y VPN. Sigue pendiente validar dos redes reales, el nodo de encuentro y la ruta directo/relay.
+- La UI deja de inferir una ruta directa por `tunnel_proto`: usa el `cost` de EasyTier 2.6.4 (`p2p` o `relay(n)`), con regresión para relay sobre transporte TCP.
 
 
 ## Colaboración en EspacioKoop · 2026-09-10
