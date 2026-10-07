@@ -15,7 +15,7 @@ EasyTier core ← CLI de estado limitada a loopback
        │ modo VPN explícito
        ▼
 Adaptador virtual ─── nodo explícito autenticado ─── amigos
-                      (alpha: P2P automático desactivado)
+                      (alpha: P2P habilitado en VPN; encuentro aún manual)
 ```
 
 ## Decisiones de la primera versión
@@ -38,7 +38,7 @@ El instalador web ya se compila y prepara el motor automáticamente, pero eso no
 
 La sala representa una identidad de red y material de acceso compartido. No es un servidor de juego ni un lobby dentro del juego. La aplicación no decide quién hospeda la partida.
 
-En modo VPN, los clientes necesitan un nodo de encuentro compatible con EasyTier 2.6.4 y su clave pública verificada. Esta primera versión no administra ni despliega el nodo. La conectividad depende de rutas, firewall y disponibilidad externa. En esta alpha se conecta al destino explícito; la búsqueda automática P2P, STUN y hole punching siguen desactivados también en VPN. No se acredita todavía una malla P2P automática entre los amigos; normalmente se necesitará relay a través del nodo.
+En modo VPN, los clientes necesitan un nodo de encuentro compatible con EasyTier 2.6.4 y su clave pública verificada. Esta primera versión no administra ni despliega el nodo. La conectividad depende de NAT, rutas, firewall y disponibilidad externa. La configuración VPN habilita P2P y TCP/UDP/symmetric hole punching y usa el conjunto STUN integrado de EasyTier; el relay de datos queda disponible como respaldo. La inspección mantiene esas capacidades desactivadas. Todavía no se acredita una malla funcional entre redes distintas ni una selección de ruta correcta en todos los NAT.
 
 Un adaptador TUN transporta IP; no replica automáticamente todo Ethernet. Algunos juegos permiten introducir una IP; otros usan broadcast, multicast, IPX o mecanismos propios. **El soporte del motor no es evidencia de compatibilidad de El Ciber.**
 
