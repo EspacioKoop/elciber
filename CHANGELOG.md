@@ -2,6 +2,14 @@
 
 El estado de una versión describe lo entregado, no la aspiración del producto.
 
+## En desarrollo · 2026-10-07
+
+- La política VPN deja de bloquear P2P: habilita conexión directa y TCP/UDP/symmetric hole punching.
+- VPN recupera el conjunto STUN integrado de EasyTier 2.6.4 y permite relay de datos como respaldo; inspección sigue aislada sin STUN, P2P ni relay de datos.
+- Se mantienen `private_mode`, UPnP desactivado y relays KCP/QUIC desactivados para no ampliar más superficie de la necesaria.
+- Añadidas pruebas de regresión que fijan la separación entre inspección y VPN. Sigue pendiente validar dos redes reales, el nodo de encuentro y la ruta directo/relay.
+
+
 ## Colaboración en EspacioKoop · 2026-09-10
 
 - Repositorio transferido a `EspacioKoop/elciber`, conservando identidad e historial.
