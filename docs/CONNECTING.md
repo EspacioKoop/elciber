@@ -34,7 +34,7 @@ La primera versión todavía **no ha superado este ciclo completo con dos Window
 
 EasyTier 2.6.4 gestiona su DHCP virtual y puede adoptar una subred anunciada por pares; su implementación inicial usa `10.126.126.0/24`. El Ciber no promete un rango configurable ni prevención automática de colisiones. Si coincide con una red existente, detén la prueba y revisa el diseño de direccionamiento antes de continuar.
 
-Esta alpha mantiene desactivados el descubrimiento P2P automático, STUN y hole punching también en VPN. Solo inicia el conector explícito al nodo, por lo que no promete conexiones directas automáticas entre amigos ni rendimiento equivalente a una malla final.
+En modo VPN, esta alpha permite que EasyTier 2.6.4 intente P2P directo mediante TCP/UDP/symmetric hole punching y deja disponible el relay de datos como respaldo. Para el descubrimiento NAT usa el conjunto STUN integrado por EasyTier 2.6.4; esos servicios son externos al proyecto y pueden observar la IP pública y metadatos básicos de la consulta. El modo inspección sigue fijando STUN, P2P, hole punching y relay de datos a desactivado. UPnP permanece desactivado en ambos modos.
 
 No compartimos automáticamente la subred doméstica, ni configuramos salida general a Internet, DNS del sistema, UPnP o captura de broadcasts de interfaces físicas. No se añade una regla de firewall por ti. Limita las excepciones a tu juego y a la interfaz virtual, según el sistema.
 

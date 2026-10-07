@@ -96,7 +96,21 @@ multi_thread = false
 	}
 	config := b.String()
 	if vpn {
-		config = strings.Replace(config, "no_tun = true", "no_tun = false", 1)
+		// Inspection is intentionally hermetic, but VPN mode is the product path:
+		// allow EasyTier to try direct peer connectivity first and keep relay data
+		// available as fallback. Omitting explicit STUN lists restores EasyTier
+		// 2.6.4's built-in discovery set; inspection keeps both lists empty.
+		for _, replacement := range [][2]string{
+			{"no_tun = true", "no_tun = false"},
+			{"disable_p2p = true", "disable_p2p = false"},
+			{"disable_tcp_hole_punching = true", "disable_tcp_hole_punching = false"},
+			{"disable_udp_hole_punching = true", "disable_udp_hole_punching = false"},
+			{"disable_sym_hole_punching = true", "disable_sym_hole_punching = false"},
+			{"disable_relay_data = true", "disable_relay_data = false"},
+		} {
+			config = strings.Replace(config, replacement[0], replacement[1], 1)
+		}
+		config = strings.Replace(config, "stun_servers = []\\nstun_servers_v6 = []\\n", "", 1)
 	}
 	return config, nil
 }

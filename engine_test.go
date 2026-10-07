@@ -276,7 +276,7 @@ func TestLifecycleRPCFailureClearsEvidence(t *testing.T) {
 	}
 }
 func TestParseRealPeerSchema(t *testing.T) {
-	b := []byte(`[{"id":"1","cost":"Local","hostname":"local","lat_ms":"-"},{"id":"2","cost":"p2p","hostname":"amigo","ipv4":"10.126.126.2","lat_ms":"1.25","tunnel_proto":"tcp"},{"id":"3","cost":"relay(2)","hostname":"otra","ipv4":"invalid","lat_ms":"NaN","tunnel_proto":""},{"id":"4","cost":"unknown","hostname":"bad\nname","lat_ms":"0","tunnel_proto":""}]`)
+	b := []byte(`[{"id":"1","cost":"Local","hostname":"local","lat_ms":"-"},{"id":"2","cost":"p2p","hostname":"amigo","ipv4":"10.126.126.2","lat_ms":"1.25","tunnel_proto":"tcp"},{"id":"3","cost":"relay(2)","hostname":"otra","ipv4":"invalid","lat_ms":"NaN","tunnel_proto":"tcp"},{"id":"4","cost":"unknown","hostname":"bad\nname","lat_ms":"0","tunnel_proto":""}]`)
 	peers, err := parsePeers(b, 1)
 	if err != nil || len(peers) != 3 {
 		t.Fatal("parse failed", err)

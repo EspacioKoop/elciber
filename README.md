@@ -54,7 +54,7 @@ Capturas de la aplicación real, ejecutada localmente con salas de prueba. No so
 
 **Instalar → crear una sala o aceptar una invitación → jugar.** Gratis y open source, sin alquilar servidores. Un solo instalador prepara el motor y el cliente; nadie debería instalar EasyTier por separado ni introducir nodos, IPs o claves técnicas.
 
-**Conexión directa P2P primero; relay comunitario gratuito como respaldo.** El encuentro ayuda a descubrir pares; si se establece una conexión directa, el tráfico de juego circula entre amigos, no por ese servicio. Esta automatización todavía no está integrada. No se garantiza conexión directa en todas las redes ni disponibilidad o latencia de los nodos comunitarios.
+**Conexión directa P2P primero; relay comunitario gratuito como respaldo.** En modo VPN, El Ciber ya permite que EasyTier intente P2P y hole punching y deja relay de datos disponible como respaldo. El encuentro sigue siendo manual y aún no se ha validado una partida entre redes distintas. No se garantiza conexión directa en todas las redes ni disponibilidad o latencia de nodos comunitarios.
 
 La preparación manual que aparece más abajo es exclusivamente para desarrollar y validar esta alpha. **No es la experiencia final ni cumple todavía el criterio de instalar y usar.**
 
@@ -67,7 +67,7 @@ La preparación manual que aparece más abajo es exclusivamente para desarrollar
 
 En esta alpha hay una preparación técnica previa: EasyTier instalado y un **nodo de encuentro compatible, alcanzable y con su clave pública verificada**. El proyecto no opera un nodo público ni configura uno automáticamente. Guardar una sala puede hacerse sin todo ello; jugar no.
 
-Una sala no es un servidor de juego. Alguien sigue teniendo que crear la partida dentro del juego. Algunos títulos admiten una IP manual; otros dependen de broadcast o protocolos que una red IP virtual no reproduce por completo. En esta alpha solo se conecta al nodo explícito; la búsqueda P2P automática y el hole punching todavía están desactivados.
+Una sala no es un servidor de juego. Alguien sigue teniendo que crear la partida dentro del juego. Algunos títulos admiten una IP manual; otros dependen de broadcast o protocolos que una red IP virtual no reproduce por completo. En esta alpha el nodo de encuentro sigue siendo explícito, pero el modo VPN ya intenta P2P directo mediante el NAT traversal de EasyTier y puede recurrir a relay de datos. Falta validarlo entre redes reales.
 
 ## Empezar
 
@@ -138,7 +138,7 @@ No desactives el firewall. No habilites VPN en un servidor de producción para p
 **No se presenta como terminado**
 
 - Instalador validado y experiencia «instalar → invitar → jugar» para personas no técnicas.
-- Encuentro comunitario gratuito, conexión P2P preferente y relay de respaldo integrados automáticamente.
+- Encuentro comunitario gratuito integrado automáticamente, con selección y evidencia fiable de ruta P2P/relay.
 - Playtest Windows 11 entre redes distintas, TUN y tráfico de juego real.
 - Descubrimiento LAN automático, compatibilidad universal o capa Ethernet completa.
 - Invitaciones temporales, roles, expulsión individual y rotación de secretos.
@@ -190,4 +190,4 @@ Creado por **VaroTv7**. Ingeniería inicial: **OTACON Astra**. Proyecto independ
 
 ---
 
-**English:** El Ciber is an open-source, local-first room manager for playing LAN games with friends, built around the external EasyTier networking engine. This is an early technical alpha, not a finished Hamachi replacement. The default inspection mode does not create a virtual network. A Windows web installer has been built but not run on Windows. Free community-assisted discovery, P2P-first connectivity with relay fallback, real cross-network gaming and game compatibility validation are still pending. See [project status](PROJECT_STATUS.md) to resume development.
+**English:** El Ciber is an open-source, local-first room manager for playing LAN games with friends, built around the external EasyTier networking engine. This is an early technical alpha, not a finished Hamachi replacement. The default inspection mode does not create a virtual network. A Windows web installer has been built but not run on Windows. VPN mode now enables P2P-first transport and relay-data fallback, but automatic community-assisted discovery, real cross-network gaming and game compatibility validation are still pending. See [project status](PROJECT_STATUS.md) to resume development.

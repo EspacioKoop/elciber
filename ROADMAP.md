@@ -18,8 +18,8 @@ Un único instalador prepara cliente y motor. El jugador crea una sala o acepta 
 ## Prioridad 1 · Encuentro gratuito y P2P preferente
 
 - Seleccionar y validar nodos comunitarios compatibles con el modo seguro y una distribución fiable de claves públicas.
-- Integrar encuentro automático y conexión directa entre amigos. Activar NAT traversal de forma deliberada y probada; actualmente está desactivado también en VPN.
-- Usar relay gratuito solo cuando no sea viable la conexión directa; explicar disponibilidad y límites sin garantías de servicio inventadas.
+- La configuración VPN ya intenta conexión directa entre amigos: P2P y TCP/UDP/symmetric hole punching quedan habilitados, usando el conjunto STUN integrado de EasyTier 2.6.4. Inspección conserva STUN/P2P desactivados. Falta validar el comportamiento entre NAT reales y automatizar el encuentro.
+- VPN permite relay de datos como respaldo cuando no sea viable la conexión directa, sin convertir el cliente en un relay abierto: `private_mode` se mantiene, la whitelist de redes foráneas sigue vacía y KCP/QUIC relay permanecen desactivados. Falta validar un nodo de encuentro/relay real y sus condiciones.
 - Mostrar tipo de conexión y mediciones reales, sin estados de éxito simulados.
 - Retirar los parámetros técnicos del flujo normal, manteniendo diagnóstico útil.
 

@@ -415,9 +415,14 @@ func parsePeers(b []byte, local uint32) ([]Peer, error) {
 		}
 		seen[r.ID] = true
 		p := Peer{ID: r.ID, Hostname: safePeerText(r.Hostname, 128), IPv4: cleanIPv4(r.IPv4), Connection: "unknown"}
-		if r.Tunnel != "" && r.Tunnel != "-" {
+		// EasyTier 2.6.4 renders route cost as "p2p" for a direct route and
+		// "relay(n)" for a relayed path. tunnel_proto describes the transport
+		// protocol and can be populated for either case, so it is not evidence
+		// that the path itself is direct.
+		cost := strings.ToLower(strings.TrimSpace(r.Cost))
+		if cost == "p2p" {
 			p.Connection = "direct"
-		} else if strings.Contains(strings.ToLower(r.Cost), "relay") {
+		} else if strings.HasPrefix(cost, "relay(") {
 			p.Connection = "relay"
 		}
 		if v, err := strconv.ParseFloat(r.Latency, 64); err == nil && v > 0 && !math.IsInf(v, 0) && !math.IsNaN(v) {
