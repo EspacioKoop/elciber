@@ -529,8 +529,8 @@
     text('confirm-public-key', room.rendezvousKey || '');
     $('confirm-key-detail').hidden = !room.rendezvousKey;
     text('confirm-mode', inspection ? 'Inspección · No crea red virtual' : 'VPN · Puede crear adaptador y rutas');
-    text('connect-description', inspection ? 'Vas a iniciar EasyTier en modo inspección, sin adaptador virtual ni rutas. Esto no conecta vuestros juegos por LAN.' : 'Vas a iniciar EasyTier para esta sala. El modo VPN puede crear un adaptador virtual y cambiar las rutas de red de este equipo.');
-    text('confirm-risk', inspection ? 'El motor puede comunicarse con el destino loopback mostrado. Confía solo en nodos que conozcas y no compartas la invitación públicamente. No se creará una red virtual.' : 'Las personas con la invitación pueden acceder a servicios que expongas en la red virtual. Verifica el destino y su clave pública. En esta alpha, otro miembro con el secreto puede ser aceptado aunque su clave sea distinta. No desactives el cortafuegos de forma general.');
+    text('connect-description', inspection ? 'Vas a iniciar EasyTier en modo inspección, sin adaptador virtual ni rutas. Esto no conecta vuestros juegos por LAN.' : 'Vas a iniciar EasyTier para esta sala. El modo VPN puede crear un adaptador virtual y cambiar las rutas de red de este equipo. Para intentar conexión directa, EasyTier puede consultar sus servidores STUN integrados.');
+    text('confirm-risk', inspection ? 'El motor puede comunicarse con el destino loopback mostrado. Confía solo en nodos que conozcas y no compartas la invitación públicamente. No se creará una red virtual.' : 'Las personas con la invitación pueden acceder a servicios que expongas en la red virtual. Verifica el destino y su clave pública. Los servicios STUN pueden observar tu IP pública y metadatos de la consulta. En esta alpha, otro miembro con el secreto puede ser aceptado aunque su clave sea distinta. No desactives el cortafuegos de forma general.');
     text('confirm-connect-label', inspection ? 'Iniciar inspección' : 'Confirmar conexión');
     syncControls();
   });
