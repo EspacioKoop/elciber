@@ -1,6 +1,6 @@
 # Estado del proyecto y punto de reanudación
 
-**Actualizado: 2026-09-10 · Versión de desarrollo: 0.1.0-alpha.1.**
+**Actualizado: 2026-10-07 · Versión de desarrollo: 0.1.0-alpha.1.**
 
 Este es el punto de entrada para retomar El Ciber desde un clon nuevo, sin depender del historial de un chat. Describe implementación, decisiones y pendientes por separado. El commit de la rama publicada identifica el candidato exacto; la fecha de este documento no acredita pruebas posteriores.
 
@@ -30,7 +30,7 @@ La infraestructura comunitaria está documentada por [EasyTier](https://www.easy
 - Salas locales persistentes, invitaciones versionadas e importación sin autoconexión.
 - API loopback con sesión efímera, comprobación de origen/Host y validación de entradas.
 - Supervisión real de EasyTier 2.6.4, configuración privada, estado/presencia reales y cierre del proceso propio.
-- Inspección sin TUN y capacidad VPN explícita. **P2P automático, STUN y hole punching están desactivados en el código actual, también en VPN.** El diseño acordado aún debe implementarse.
+- Inspección sin TUN y capacidad VPN explícita. La inspección mantiene P2P, STUN, hole punching y relay de datos desactivados. En VPN, la configuración ya habilita P2P y TCP/UDP/symmetric hole punching, recupera los servidores STUN integrados de EasyTier 2.6.4 y permite relay de datos como respaldo; UPnP y los relays KCP/QUIC siguen desactivados. **Esta política todavía no acredita conectividad entre dos redes reales.**
 - Candidato de instalador web Windows compilado y extraído: descarga automática del motor, hashes fijados, acceso de Inicio y desinstalador. No depende de Python/Go/PowerShell en el equipo del jugador.
 - Cierre desde la interfaz, sin necesidad de consola, con conservación de las salas.
 - README con capturas reales, licencia MIT del cliente, avisos de terceros, pruebas y documentación. Configuración CI Windows/Linux preservada como plantilla; no se activa automatización al publicar este snapshot.
@@ -39,11 +39,11 @@ La infraestructura comunitaria está documentada por [EasyTier](https://www.easy
 
 Los detalles están en [VALIDATION.md](docs/VALIDATION.md) y [INSTALLER.md](docs/INSTALLER.md).
 
-- Pruebas Go con detección de carreras, análisis estático y compilaciones Linux/Windows ejecutadas.
+- Pruebas Go con detección de carreras, análisis estático y compilaciones Linux/Windows ejecutadas en el corte anterior. El cambio de política P2P añade regresiones unitarias que separan inspección aislada de VPN conectable; esta rama no activa CI remota.
 - Navegador real y motor oficial real sobre loopback: invitación, handshake, presencia, desconexión y cierre. No TUN ni cambios de interfaces/rutas en esas pruebas.
 - Helper del instalador probado con archivos sintéticos y descarga real del paquete Windows desde Linux, verificando el manifest y sus hashes.
 - El instalador se ha compilado y extraído; **no se ha instalado ni ejecutado en Windows real**. No está firmado ni hay una release de jugador validada.
-- No se han probado partidas entre redes distintas, compatibilidad LAN por juego, consumo prolongado ni rendimiento P2P/relay.
+- No se han probado partidas entre redes distintas, compatibilidad LAN por juego, consumo prolongado ni rendimiento P2P/relay. Habilitar la política de transporte no equivale a validar que un NAT concreto consiga conexión directa o que el relay elegido sea usable.
 - La configuración de GitHub Actions se conserva como [plantilla sin activar](docs/ci/README.md). No hay CI remota aprobada asociada a esta publicación; las pruebas acreditadas son locales.
 
 **Resultado actual: base técnica recuperable; no producto listo para instalar y jugar.**
@@ -51,7 +51,7 @@ Los detalles están en [VALIDATION.md](docs/VALIDATION.md) y [INSTALLER.md](docs
 ## Trabajo pendiente, en orden
 
 1. **Encuentro gratuito compatible y autenticado.** Evaluar nodos comunitarios, obtención fiable de claves públicas, condiciones de uso y fallo de nodos. No quitar validaciones de seguridad para aceptar cualquier servidor.
-2. **P2P preferente y respaldo relay.** Integrar configuración automática, NAT traversal y selección de rutas con estado real visible. Mantener las pruebas de inspección aisladas, sin habilitar tráfico externo en ellas.
+2. **P2P preferente y respaldo relay.** La configuración VPN ya permite P2P, NAT traversal por hole punching y relay de datos de respaldo, mientras inspección permanece aislada. Falta validarlo entre redes distintas, confirmar selección de ruta y exponer evidencia fiable de directo vs relay sin estados simulados.
 3. **Flujo sin configuración técnica.** Crear/importar sala debe preparar el motor y la conexión sin que el jugador introduzca direcciones de nodos, claves o parámetros de red. Los formularios técnicos actuales no satisfacen este criterio.
 4. **Endurecer el instalador y privilegios.** Separar la interfaz del helper privilegiado; reparar/reintentar tras fallo, preservar datos y ofrecer actualización/rollback. El candidato actual solicita UAC al abrir el cliente y rechaza instalaciones existentes.
 5. **Validación Windows 11.** Instalación, apertura, adaptador, desconexión, desinstalación y conservación de datos en un equipo autorizado de pruebas. No ejecutarlo en un servidor de producción.
